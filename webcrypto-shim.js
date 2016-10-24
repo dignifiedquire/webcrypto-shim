@@ -3,7 +3,7 @@
  * @author Artem S Vybornov <vybornov@gmail.com>
  * @license MIT
  */
-!function ( global ) {
+module.exports = function webcryptoShim (global) {
     'use strict';
 
     if ( typeof Promise !== 'function' )
@@ -594,4 +594,4 @@
         global.SubtleCrypto = _SubtleCrypto;
         global.CryptoKey = CryptoKey;
     }
-}(this);
+}
