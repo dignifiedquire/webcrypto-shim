@@ -19,7 +19,7 @@ module.exports = function webcryptoShim (global) {
         _SubtleCrypto = global.SubtleCrypto || _subtle.constructor || Object,
         _CryptoKey  = global.CryptoKey || global.Key || Object;
 
-    var isEdge = window.navigator.userAgent.indexOf('Edge/') > -1
+    var isEdge = global.navigator.userAgent.indexOf('Edge/') > -1
     var isIE    = !!global.msCrypto && !isEdge,
         isWebkit = !!_crypto.webkitSubtle;
     if ( !isIE && !isWebkit ) return;
