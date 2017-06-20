@@ -21,7 +21,7 @@ module.exports = function webcryptoShim (global) {
 
     var isEdge = global.navigator.userAgent.indexOf('Edge/') > -1
     var isIE    = !!global.msCrypto && !isEdge,
-        isWebkit = !!_crypto.webkitSubtle;
+        isWebkit = !_crypto.subtle && !!_crypto.webkitSubtle;
     if ( !isIE && !isWebkit ) return;
 
     function s2a ( s ) {
